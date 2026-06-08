@@ -144,22 +144,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       6. Interatividade da Foto de Perfil (Suporte para Mobile Touch)
+       6. Interatividade da Foto de Perfil (Revelação por Pintura Estilo Ink Spreading)
        ========================================================================== */
     const profileContainer = document.getElementById('profile-interactive-container');
     
     if (profileContainer) {
-        // Alterna a classe 'active' ao tocar no smartphone para acionar o efeito hover-like
-        profileContainer.addEventListener('click', (e) => {
-            profileContainer.classList.toggle('active');
-        });
-        
-        // Remove a classe 'active' caso o usuário toque fora do contêiner da foto
-        document.addEventListener('click', (e) => {
-            if (!profileContainer.contains(e.target)) {
-                profileContainer.classList.remove('active');
-            }
-        });
+        const circles = [
+            { id: 'clip-circle-1', maxR: 0.9, delay: 0 },
+            { id: 'clip-circle-2', maxR: 0.7, delay: 80 },
+            { id: 'clip-circle-3', maxR: 0.8, delay: 160 },
+            { id: 'clip-circle-4', maxR: 0.75, delay: 240 },
+            { id: 'clip-circle-5', maxR: 0.7, delay: 120 },
+            { id: 'clip-circle-6', maxR: 0.65, delay: 200 },
+            { id: 'clip-circle-7', maxR: 0.6, delay: 280 }
+        ];
+
+        const triggerPaint = () => {
+            if (profileContainer.classList.contains('painted')) return;
+            
+            profileContainer.classList.add('painted');
+            
+            circles.forEach(c => {
+                const el = document.getElementById(c.id);
+                if (el) {
+                    setTimeout(() => {
+                        let start = null;
+                        const duration = 1200; // ms
+                        
+                        function step(timestamp) {
+                            if (!start) start = timestamp;
+                            const progress = Math.min((timestamp - start) / duration, 1);
+                            
+                            // Efeito de facilitação easeOutCubic para a expansão do fluido
+                            const easeProgress = 1 - Math.pow(1 - progress, 3);
+                            el.setAttribute('r', easeProgress * c.maxR);
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(step);
+                            }
+                        }
+                        requestAnimationFrame(step);
+                    }, c.delay);
+                }
+            });
+        };
+
+        // Dispara ao passar o mouse (desktop) ou ao clicar/tocar (mobile e fallback)
+        profileContainer.addEventListener('mouseenter', triggerPaint);
+        profileContainer.addEventListener('click', triggerPaint);
     }
 
 });
