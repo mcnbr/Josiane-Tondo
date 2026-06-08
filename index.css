@@ -1503,3 +1503,252 @@ ul {
     opacity: 0;
     transform: translateY(10px);
 }
+
+/* ==========================================================================
+   Ajustes Responsivos Globais para Dispositivos Móveis (Celulares e Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Ajustes Gerais de Margens e Padding das Seções */
+    .sobre-section,
+    .especialidades-section,
+    .como-funciona-section,
+    .localizacao-section,
+    .faq-section,
+    .final-cta-section {
+        padding: 3.5rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.85rem !important;
+        margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    /* Hero Section Responsiva */
+    .hero-section {
+        padding-top: 7.5rem;
+        padding-bottom: 4rem;
+        text-align: center;
+    }
+    
+    .hero-content {
+        align-items: center;
+    }
+    
+    .hero-badge {
+        margin-bottom: 1.25rem;
+    }
+    
+    .hero-title {
+        font-size: 2.15rem !important;
+        line-height: 1.2;
+    }
+    
+    .hero-lead {
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 1.5rem;
+    }
+    
+    /* Hero Image Wrapper e Efeitos */
+    .hero-image-wrapper {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .hero-image-wrapper::after {
+        left: 0;
+        top: 10px;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--radius-lg);
+    }
+    
+    .hero-floating-card {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        margin: 1.5rem auto 0 auto;
+        max-width: 100%;
+        text-align: left;
+    }
+
+    /* Sobre Mim (Grid e Stats) */
+    .sobre-content {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .crp-tag {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .sobre-content .btn {
+        width: 100%;
+    }
+    
+    .sobre-stats {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        text-align: center;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        padding-top: 1.5rem;
+    }
+    
+    .stat-num {
+        font-size: 1.6rem;
+    }
+    
+    /* Contêiner de Imagem de Perfil Interativo */
+    .profile-interactive-container {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .sobre-image-decor {
+        display: none; /* remove para simplificar e evitar deslocamento horizontal */
+    }
+
+    /* Especialidades (Serviços) */
+    .service-card-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .service-icon-wrapper {
+        width: 50px;
+        height: 50px;
+        font-size: 1.15rem;
+        top: -25px;
+        right: 1.5rem;
+    }
+
+    /* Linha do Tempo (Como Funciona) */
+    .timeline {
+        margin: 2.5rem auto;
+    }
+    
+    .timeline::before {
+        left: 1.25rem;
+    }
+    
+    .timeline-badge {
+        left: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+    
+    .timeline-item {
+        padding-left: 3.25rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .timeline-content {
+        padding: 1.5rem;
+    }
+    
+    .info-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .info-card i {
+        font-size: 1.5rem;
+    }
+
+    /* Localização, Contatos e Mapa */
+    .location-info {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .contact-details {
+        text-align: left;
+    }
+    
+    .location-info .btn {
+        width: 100%;
+    }
+    
+    .simulated-map {
+        height: 280px;
+    }
+    
+    .map-card {
+        margin-top: 1.5rem;
+        padding: 0.75rem;
+    }
+
+    /* FAQ (Accordion) */
+    .accordion {
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+    
+    .accordion-header {
+        padding: 1.25rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .accordion-content {
+        padding: 0 1.5rem 1.25rem 1.5rem;
+    }
+    
+    /* Botão Flutuante do WhatsApp */
+    .whatsapp-float-btn {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 54px;
+        height: 54px;
+        font-size: 1.75rem;
+    }
+    
+    .float-tooltip {
+        display: none !important; /* oculta tooltip em celulares para evitar bugs de hover */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes Finos para Telas Super Estreitas */
+    .hero-title {
+        font-size: 1.95rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.65rem !important;
+    }
+    
+    .profile-interactive-container {
+        max-width: 260px;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
